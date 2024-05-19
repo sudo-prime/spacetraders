@@ -3,15 +3,13 @@ import { Provider } from "react-redux";
 import { store } from './redux/store'
 import { Mosaic, MosaicWindow } from 'react-mosaic-component';
 
-import 'react-mosaic-component/react-mosaic-component.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+import 'react-mosaic-component/react-mosaic-component.css';
 import FleetWindow from "./components/windows/FleetWindow/FleetWindow";
 import MapWindow from "./components/windows/MapWindow/MapWindow";
 
-import "react-mosaic-component/react-mosaic-component.css";
 import './App.css'
-
 
 const App = () => {
   const [newId, setNewId] = useState(1); 
@@ -31,6 +29,7 @@ const App = () => {
     <Provider store={store}>
       <div id="app">
         <Mosaic
+          blueprintNamespace="bp5"
           renderTile={(id, path) => (
             <MosaicWindow path={path} createNode={() => {
               const nodeId = newId;
