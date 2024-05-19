@@ -1,7 +1,4 @@
-import Window from "../../base/Window/Window";
 import { Ship } from "../../../types/ShipTypes";
-import ShipTile from "../../base/ShipTile/ShipTile"
-import { MosaicWindow } from "react-mosaic-component";
 
 interface FleetWindowProps {
     ships: Ship[];
@@ -9,12 +6,14 @@ interface FleetWindowProps {
 
 const FleetWindow = ({ships}: FleetWindowProps) => {
 
-    return <Window
-        count={1}
-        totalWindowCount={1}
-        path={['first']}
-    >
-    </Window>
+    return <ul>
+        {ships.map((ship: Ship) => {
+            return <li>
+                {ship.name}
+                <button>Details</button>
+            </li>
+        })}
+    </ul>
 }
 
 export default FleetWindow;
